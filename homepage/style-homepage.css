@@ -2,94 +2,94 @@
 ---------------------- */
 
  :root {
-     --bg-color: #dc3545;
-     --typewriterSpeed: 6s;
-     --typewriterCharacters: 19;
+ 	--bg-color: #dc3545;
+ 	--typewriterSpeed: 6s;
+ 	--typewriterCharacters: 19;
  }
 
  body {
-     font-family: "Source Sans Pro", sans-serif;
+ 	font-family: "Source Sans Pro", sans-serif;
  }
 
  .title {
-     font-size: clamp(1rem, 3vw + 1rem, 4rem);
-     position: relative;
-     font-family: "Source Code Pro", monospace;
-     width: max-content;
-     color: white;
+ 	font-size: clamp(1rem, 3vw + 1rem, 4rem);
+ 	position: relative;
+ 	font-family: "Source Code Pro", monospace;
+ 	width: max-content;
+ 	color: snow;
  }
 
  .title::before,
  .title::after {
-     content: "";
-     position: absolute;
-     top: 0;
-     right: 0;
-     bottom: 0;
-     left: 0;
+ 	content: "";
+ 	position: absolute;
+ 	top: 0;
+ 	right: 0;
+ 	bottom: 0;
+ 	left: 0;
  }
 
  .title::before {
-     background: var(--bg-color);
-     animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards;
+ 	background: var(--bg-color);
+ 	animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards;
  }
 
  .title::after {
-     width: 0.125em;
-     background: white;
-     animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards,
-         blink 750ms steps(var(--typewriterCharacters)) infinite;
+ 	width: 0.125em;
+ 	background: white;
+ 	animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards,
+ 		blink 750ms steps(var(--typewriterCharacters)) infinite;
  }
 
  .subtitle {
-     color: hsl(0 0% 0% / 0.7);
-     font-size: 2rem;
-     font-weight: 400;
-     opacity: 0;
-     transform: translateY(3rem);
-     animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
-     color: white;
+ 	color: hsl(0 0% 0% / 0.7);
+ 	font-size: 2rem;
+ 	font-weight: 400;
+ 	opacity: 0;
+ 	transform: translateY(3rem);
+ 	animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+ 	color: snow;
  }
 
  @keyframes typewriter {
-     to {
-         left: 100%;
-     }
+ 	to {
+ 		left: 100%;
+ 	}
  }
 
  @keyframes blink {
-     to {
-         background: transparent;
-     }
+ 	to {
+ 		background: transparent;
+ 	}
  }
 
  @keyframes fadeInUp {
-     to {
-         opacity: 1;
-         transform: translateY(0);
-     }
+ 	to {
+ 		opacity: 1;
+ 		transform: translateY(0);
+ 	}
  }
 
 
  /* Sticky footer styles
 ------------------------ */
  html {
-     position: relative;
-     min-height: 100%;
+ 	position: relative;
+ 	min-height: 100%;
  }
 
  body {
-     margin-bottom: 60px;
-     /* Margin bottom by footer height */
+ 	margin-bottom: 60px;
+ 	/* Margin bottom by footer height */
  }
 
  .footer {
-     position: absolute;
-     bottom: 0;
-     width: 100%;
-     height: 60px;
-     /* Set the fixed height of the footer here */
-     line-height: 60px;
-     /* Vertically center the text there */
-     background-color: #f5f5f5;
+ 	position: absolute;
+ 	bottom: 0;
+ 	width: 100%;
+ 	height: 60px;
+ 	/* Set the fixed height of the footer here */
+ 	line-height: 60px;
+ 	/* Vertically center the text there */
+ 	background-color: #f5f5f5;
  }
