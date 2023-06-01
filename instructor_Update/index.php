@@ -1,123 +1,116 @@
-<?php 
-    include_once '../navbar_headerfooter/headr.php';
+<?php
+	require_once '../assets/includes/authen-check.php';
 ?>
-<title>Instructor > Update</title>
 
+<!-- Modal Update -->
+<div class="modal fade modal-xl" id="UpdateModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<form id="myFormUpdate">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="staticBackdropLabel">Update Instructor Record</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row border rounded shadow mb-4">
+						<div class="col-md-12">
+							<div class="row mb-3 mt-2">
+								<div class="col-3">
+									<label for="EmpID" class="form-label">Employee ID</label>
+									<input type="text" class="form-control" placeholder="Employee ID" id="EmpID" name="EmpID">
+								</div>
+								<div class="col-9">
+									<label for="EmpEmail" class="form-label">Email</label>
+									<input type="email" class="form-control" placeholder="Email Address" id="EmpEmail" name="EmpEmail">
+								</div>
+							</div>
 
-<section class="container pt-3">
-    <div class="row">
-        <div class="col">
-            <h3> <i class="fa-solid fa-file-pen"></i> Update Instructor</h3>
-        </div>
+							<div class="row border shadow-sm rounded mx-1 pb-2 mb-3">
+								<label for="EmpLname" class="form-label pt-1">Full name</label>
+								<div class="col-lg col-md-4 col-sm-5 pb-2">
+									<input type="text" class="form-control" placeholder="Last name" id="EmpLname" name="EmpLname">
+								</div>
+								<div class="col-lg col-md-4 col-sm-5">
+									<input type="text" class="form-control" placeholder="First name" id="EmpFname" name="EmpFname">
+								</div>
+								<div class="col-lg col-md-4 col-sm-2">
+									<input type="text" class="form-control" placeholder="M.I" id="EmpMI" name="EmpMI">
+								</div>
+								<div class="col-lg-1 col-md-2 col-sm-3">
+									<input type="text" class="form-control" placeholder="Suffix" id="EmpSuffix" name="EmpSuffix">
+								</div>
+							</div>
 
-        <div class="col d-flex justify-content-end">
-            <nav style="--bs-breadcrumb-divider: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&quot;);" aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="../homepage/" class="text-dark" style="text-decoration: none;">
-                            <i class="fa fa-house"></i> Home
-                        </a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Instructor</li>
-                    <li class="breadcrumb-item active" aria-current="page">View</li>
-                    <li class="breadcrumb-item active" aria-current="page">Update</li>
-                </ol>
-            </nav>
-        </div>
-        <hr>
-    </div>
-</section>
+							<div class="row border shadow-sm rounded mx-1 pb-2 mb-3 justify-content-center">
+								<label for="EmpStAddress" class="form-label pt-1">Address</label>
+								<div class="col-sm-6 pb-2">
+									<input type="text" class="form-control" placeholder="Street address" id="EmpStAddress" name="EmpStAddress" required>
+								</div>
+								<div class="col-sm-6 pb-2">
+									<input type="text" class="form-control" placeholder="Barangay" id="EmpBrgy" name="EmpBrgy" required>
+								</div>
+								<div class="col-sm-6 pb-2">
+									<input type="text" class="form-control" placeholder="Municipality / City" id="EmpCity" name="EmpCity" required>
+								</div>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" placeholder="Province" id="EmpProvince" name="EmpProvince" required>
+								</div>
+							</div>
+						</div>
+					</div>
 
-<div class="container">
-    <form action="">
-        <div class="row border rounded shadow mb-4">
-            <h4 class="pt-2">Personal Information</h4>
-            <hr>
-            <div class="col-md-12">
-                <div class="row mb-3">
-                    <div class="col-3">
-                        <label for="idnum" class="form-label">ID Number</label>
-                        <input type="text" class="form-control" placeholder="ID Number" id="idnum">
-                    </div>
-                    <div class="col-9">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="Email Address" id="email">
-                    </div>
-                </div>
+					<div class="row border rounded shadow">
+						<h4 class="pt-2">Other Information</h4>
+						<hr>
+						<div class="col-md-12">
+							<div class="row mb-3">
+								<div class="col">
+									<label for="EmpDegree" class="form-label">Degree</label>
+									<select class="form-select" id="EmpDegree" name="EmpDegree" required>
+										<option value="" disabled selected></option>
+										<option value="BS Computer Science">BS Computer Science</option>
+										<option value="BS Information Technology">BS Information Technology</option>
+									</select>
+								</div>
+								<div class="col">
+									<label for="EmpDeptartment" class="form-label">Department</label>
+									<select class="form-select" id="EmpDeptartment" name="EmpDeptartment" required>
+										<option value="" disabled selected></option>
+										<option value="IT">IT</option>
+										<option value="ACCOUNTING">ACCOUNTING</option>
+									</select>
+								</div>
+								<div class="col">
+									<label for="EmpStatus" class="form-label">Employee Status</label>
+									<select class="form-select" id="EmpStatus" name="EmpStatus" required>
+										<option value="" disabled selected></option>
+										<option value="Full Time">Full Time</option>
+										<option value="Part Time">Part Time</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                <div class="row border shadow-sm rounded mx-1 pb-2 mb-3">
-                    <label for="fullname" class="form-label pt-1">Full name</label>
-                    <div class="col-lg col-md-4 col-sm-5 pb-2">
-                        <input type="text" class="form-control" placeholder="Last name" id="fullname">
-                    </div>
-                    <div class="col-lg col-md-4 col-sm-5">
-                        <input type="text" class="form-control" placeholder="First name">
-                    </div>
-                    <div class="col-lg col-md-4 col-sm-2">
-                        <input type="text" class="form-control" placeholder="M.I">
-                    </div>
-                    <div class="col-lg-1 col-md-2 col-sm-3">
-                        <input type="text" class="form-control" placeholder="Suffix">
-                    </div>
-                </div>
-
-                <div class="row border shadow-sm rounded mx-1 pb-2 mb-3 justify-content-center">
-                    <label for="address" class="form-label pt-1">Address</label>
-                    <div class="col-sm-6 pb-2">
-                        <input type="text" class="form-control" placeholder="Street address" id="address">
-                    </div>
-                    <div class="col-sm-6 pb-2">
-                        <input type="text" class="form-control" placeholder="Barangay">
-                    </div>
-                    <div class="col-sm-6 pb-2">
-                        <input type="text" class="form-control" placeholder="Municipality / City">
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Province">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row border rounded shadow mb-4">
-            <h4 class="pt-2">Other Information</h4>
-            <hr>
-            <div class="col-md-12">
-                <div class="row mb-3">
-                    <div class="col">
-                        <label for="College" class="form-label">College</label>
-                        <select class="form-select" id="College">
-                            <option selected="">Select</option>
-                            <option value="College of Computer Science">College of Computer Science</option>
-                            <option value="Information Technology">College of Information Technology</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="Department" class="form-label">Department</label>
-                        <select class="form-select" id="Department">
-                            <option selected="">Select</option>
-                            <option value="IT">IT</option>
-                            <option value="ACCOUNTING">ACCOUNTING</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="Employeestat" class="form-label">Employee Status</label>
-                        <select class="form-select" id="Employeestat">
-                            <option selected="">Select</option>
-                            <option value="College of Computer Science">Full Time</option>
-                            <option value="Information Technology">Part Time</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row row-cols-3 justify-content-end">
-            <button class="btn btn-success">Update</button>
-        </div>
-    </form>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary" id="liveToastBtnUpdate" onclick="UpdateData()">Update</button>
+					<input type="text" id="hiddenID" name="hiddenID" hidden>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>
 
 
-<?php 
-    include_once '../navbar_headerfooter/footr.php';
-?>
+<!-- TOAST NOTIFICATION -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+	<div id="liveToastUpdate" class="toast align-items-center text-bg-info border-0" role="alert" aria-live="assertive" aria-atomic="true">
+		<div class="d-flex">
+			<div class="toast-body">
+				<b>Updated!</b>
+			</div>
+			<button type="button" class="btn-close btn-close-black me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+		</div>
+	</div>
+</div>
